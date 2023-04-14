@@ -1,0 +1,15 @@
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\bin\Debug\net6.0\LoopedMachine.exe
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\bin\Debug\net6.0\LoopedMachine.deps.json
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\bin\Debug\net6.0\LoopedMachine.runtimeconfig.json
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\bin\Debug\net6.0\LoopedMachine.dll
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\bin\Debug\net6.0\LoopedMachine.pdb
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.csproj.AssemblyReference.cache
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.AssemblyInfoInputs.cache
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.AssemblyInfo.cs
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.csproj.CoreCompileInputs.cache
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.dll
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\refint\LoopedMachine.dll
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.pdb
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\LoopedMachine.genruntimeconfig.cache
+C:\Users\user\Desktop\яп\LoopedMachine\LoopedMachine\obj\Debug\net6.0\ref\LoopedMachine.dll
