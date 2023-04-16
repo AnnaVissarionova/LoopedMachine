@@ -18,13 +18,13 @@ namespace LoopedMachine
             "q1 b  -> q1 a +1",
            // "q2 a  -> q1 b +1",
             //"q2 b  -> q1 a -1",
-            "q1 ^  -> q1 ^ +1",
+            "q1 ^  -> q2 ^ +1",
             //"q2 ^  -> q1 ^ +1",
 
 
         };
 
-            var mch = new Machine(new int[] { 1, 2 }, tf);
+            var mch = new Machine(new int[] { 1, 2 }, tf, 5);
             /*var dict = DefineCOnditionsDictionary(new int[] { 1, 2, 3 }, tf);
             var dict_comb = CreateCombDict(dict);
 */
@@ -40,9 +40,8 @@ namespace LoopedMachine
 
             var length = 5;
 
-            text = mch.CheckText(text, length);
             mch.PrintComb();
-            mch.RunMachine(nc, text, np, length);
+            mch.RunMachine(nc, text, np);
 
             /*(nc, np, text) = OneStep(nc, text, np, dict, 2);
             Console.Write($"text : {text} ; ");

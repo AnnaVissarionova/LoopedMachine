@@ -10,11 +10,14 @@ namespace LoopedMachine
     {
         Dictionary<int[], int> comb;
         Dictionary<int, Dictionary<char, int[]>> q_table;
-
-        public Machine(int[] conds, string[] transf)
+        int length;
+        int steps_count;
+        public Machine(int[] conds, string[] transf, int l)
         {
-            q_table = DefineCOnditionsDictionary(conds, transf);
+            q_table = DefineConditionsDictionary(conds, transf);
             comb = CreateCombDict(q_table);
+            length = l;
+            steps_count = 0;
         }
         static Dictionary<int[], int> CreateCombDict(Dictionary<int, Dictionary<char, int[]>> q_table)
         {
@@ -67,7 +70,7 @@ namespace LoopedMachine
             return res;
         }
 
-        public string CheckText(string text, int length)
+        string CheckText(string text)
         {
             while (text.Length < length)
             {
@@ -76,7 +79,7 @@ namespace LoopedMachine
             return text;
         }
 
-        static Dictionary<int, Dictionary<char, int[]>> DefineCOnditionsDictionary(int[] conds, string[] transforms)
+        static Dictionary<int, Dictionary<char, int[]>> DefineConditionsDictionary(int[] conds, string[] transforms)
         {
             var dict = new Dictionary<int, Dictionary<char, int[]>>();
             for (var i = 0; i < conds.Length; i++)
@@ -102,8 +105,9 @@ namespace LoopedMachine
             return dict;
         }
 
-        public (int, int, string) OneStep(int q, string text, int cur_pos, int length)
+        public (int, int, string) OneStep(int q, string text, int cur_pos)
         {
+            text = CheckText(text);
             (int next_cond, int next_pos) = (-1, -1);
             var cur_char = text[cur_pos];
             var dict = q_table.GetValueOrDefault(q);
@@ -122,24 +126,31 @@ namespace LoopedMachine
             if (next_pos == -1) { next_pos = length - 1; }
             if (next_pos == length) { next_pos = 0; }
 
+            steps_count++;
             return (next_cond, next_pos, text);
         }
 
 
-        public (int, int, string) MakeNSteps(int q, string text, int cur_pos, int length, int steps)
+        public (int, int, string) MakeNSteps(int q, string text, int cur_pos, int steps)
         {
+            text = CheckText(text);
             for (var i = 0; i < steps; i++)
             {
-                (q, cur_pos, text) = OneStep(q, text, cur_pos, length);
+                (q, cur_pos, text) = OneStep(q, text, cur_pos);
+                if(q == -1)
+                {
+                    break;
+                }
             }
             return (q, cur_pos, text);
         }
 
-        public void RunMachine(int q, string text, int cur_pos, int length)
+        public void RunMachine(int q, string text, int cur_pos)
         {
+            text = CheckText(text);
             while (q != -1)
             {
-                if (CheckCobminations(comb))
+                if (CheckCobminations(comb) && steps_count > length)
                 {
                     Console.WriteLine("машина прошла все комбинации и зациклилась");
                     break;
@@ -149,7 +160,7 @@ namespace LoopedMachine
                     PrintComb(c);
                 }
                 (int q_prev, int pos_prev, char prev) = (q, cur_pos, text[cur_pos]);
-                (q, cur_pos, text) = OneStep(q, text, cur_pos, length);
+                (q, cur_pos, text) = OneStep(q, text, cur_pos);
                 if (q != -1)
                 {
                     UpdateComb(q_prev, prev);
@@ -158,6 +169,7 @@ namespace LoopedMachine
                 Console.Write($"cond : {q}; ");
                 Console.WriteLine($"pos : {cur_pos}");
             }
+           if (q == -1)  Console.WriteLine("машина не зациклилась");
         }
 
        
